@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
 	<title>Blueprints</title>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 	  href="/webjars/bootstrap/4.1.2/css/bootstrap.min.css" />
 	<script src="js/apimock.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/appiclient.js"></script>
+	<script src="js/apiclient.js"></script>
 </head>
 <style>
 table, th, td {
@@ -18,12 +18,13 @@ table, th, td {
 }
 </style>
 <body>
-	<h1>BluePrints</h1>
+	<h1>BluePrints v2</h1>
 	<form>
 	<div>
 	<b>Author</b>
-	<input type="text" id = "author">
-	<button onclick="app.getNameAuthorBlueprints();">Get blueprints</button>
+		<label for="authorHTMl"></label>
+		<input type="text" id = "authorHTMl">
+	<button type="button" onclick="app.getBlueprints($('#authorHTMl').val());">Get blueprints</button>
 	</div>
 	<div>
 	<h3 id="author_name_table">Author Blueprints: </h3>
@@ -43,14 +44,15 @@ table, th, td {
 	<br>
 	<br>
 	<b>Total user points:</b>
-		<a class="points" id="points"> 0 </a></div>
+		<a class="points" id="points">Total points: </a></div>
 
 	<br>
 	<br>
 	<div>
-	<a id="blueprintname">Current blueprint:</a>
+	<h3 id="blueprintname">Current blueprint:</h3>
+
 	<br>
-	<canvas id="canvas"></canvas>
+	<canvas id="canvas" style="width:50%;height:50%"></canvas>
 	</div>
 	</form>
 	
