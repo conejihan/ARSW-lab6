@@ -42,9 +42,9 @@ var app = ( function(){
 
         });
 
-        $("author_name_table").html(privateAuthor+"'s blueprints");
-        $("Table_Content").html(html);
-        $("points").html("Total user points: " + totalPoints);
+        $("#author_name_table").html(privateAuthor+"'s blueprints");
+        $("#Table_Content").html(html);
+        $("#points").html("Total user points: " + totalPoints);
     }
 
     var getBlueprints = function (author) {
