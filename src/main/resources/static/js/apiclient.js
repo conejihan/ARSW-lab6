@@ -17,17 +17,17 @@ var apiclient = (function () {
 
         },
 
-        getBlueprintsByNameAndAuthor: function (name, author, callback) {
+        getBlueprintsByNameAndAuthor: function(name, author, callback) {
             $.get({
-                url: "/blueprints/" + author + "/" + name,
-                contentType: "application/json",
-            }, function (data){
-                callback(null. data);
-            })
-            .fail(function (error) {
-                    alert("No existen los datos")
-                }
-            );
+                    url: "/blueprints/" + author + "/" + name,
+                    contentType: "application/json",
+                },
+
+                function (data){
+                callback(null, data)
+            }).fail(function (){
+                alert("error");
+            });
         }
     }
 })();

@@ -1,4 +1,5 @@
 var app = ( function(){
+    let apiNameAuthor;
     let privateAuthor = "";
     let mapList = [];
     let totalPoints;
@@ -28,7 +29,7 @@ var app = ( function(){
 
 
 
-    var drawTable = function (apiNameAuthor) {
+    var drawTable = function () {
         let html = "";
 
         console.log(privateAuthor);
@@ -37,7 +38,7 @@ var app = ( function(){
             html += "<td>" + blueprint.name +  "</td>";
             console.log(blueprint.name);
             html += "<td>" +blueprint.points+ "</td>";
-            html += "<td> <button type='button' class='btn btn-success' onclick='app.drawBlueprintsPoints(\""+blueprint.name+"\",\""+privateAuthor+"\", \""+apiNameAuthor+"\");'>Open</button></td>"
+            html += "<td> <button type='button' class='btn btn-success' onclick='app.drawBlueprintsPoints(\""+blueprint.name+"\",\""+privateAuthor+"\");'>Open</button></td>"
             html += "</tr>"
 
         });
@@ -49,29 +50,34 @@ var app = ( function(){
 
     var getBlueprints = function (author) {
         privateAuthor = author;
-        let apiNameAuthor = apiclient;
+        apiNameAuthor = apiclient;
         apiclient.getBlueprintsByAuthor(author, function (error, data){
             mapBlueprints(data);
             calculatePoints();
-            drawTable(apiNameAuthor);
+            drawTable();
 
         })
 
     };
     var getBluePrintsMock = function (author) {
         privateAuthor = author;
-        let apiNameAuthor = apimock;
+        apiNameAuthor = apimock;
         apimock.getBlueprintsByAuthor(author, function (error, data){
             mapBlueprints(data);
             calculatePoints();
-            drawTable(apiNameAuthor);
+            drawTable();
         })
     };
 
 
     return {
         getBlueprints, getBluePrintsMock,
-        drawBlueprintsPoints: function (name, author, apiNameAuthor) {
+        drawBlueprintsPoints: function (name, author) {
+            console.log("nombre Blueprint: ");
+            console.log(name);
+            console.log("Nombre autor: ");
+            console.log(author);
+            console.log(apiNameAuthor);
             apiNameAuthor.getBlueprintsByNameAndAuthor(name, author, function (error, blueprint){
                 let canvas = $("#canvas")[0];
                 let canvas2d = canvas.getContext("2d");
