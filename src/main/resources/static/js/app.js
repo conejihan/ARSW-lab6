@@ -79,7 +79,7 @@ var app = ( function(){
             console.log(author);
             console.log(apiNameAuthor);
             apiNameAuthor.getBlueprintsByNameAndAuthor(name, author, function (error, blueprint){
-                let canvas = $("#canvas")[0];
+                let canvas = $("#mycanvas")[0];
                 let canvas2d = canvas.getContext("2d");
                 for(let i = 1; i < blueprint.points.length; i++){
                     canvas2d.moveTo(blueprint.points[i-1].x,blueprint.points[i-1].y);
@@ -88,6 +88,24 @@ var app = ( function(){
                 }
                 $("#blueprintname").html("Current blueprint: "+name);
             })
+        },
+
+        init: function (){
+            var canvas = document.getElementById("mycanvas"),
+                context = canvas.getContext("2d");
+            console.log("Inicio evento");
+
+            if(window.PointerEvent){
+                canvas.addEventListener("pointerdown", function (event){
+                    alert('pointerdown at' + event.pageX + ',' + event.pageY);
+                })
+            }
+            else {
+                canvas.addEventListener("mousedown", function (event){
+                    alert('mousedown at' + event.clientX+','+event.clientY);
+                });
+            }
         }
+
     }
 })();
