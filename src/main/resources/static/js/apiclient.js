@@ -51,7 +51,7 @@ var apiclient = (function () {
         deleteBlueprint: function (name, author){
             return $.ajax({
                 url: "/blueprints/" + author + "/" + name,
-                type: 'Delete',
+                type: 'DELETE',
                 contentType: "application/json"
             }).fail(function (){
                 alert("Fallo al borrar");
