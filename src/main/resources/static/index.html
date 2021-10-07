@@ -58,7 +58,15 @@ table, th, td {
 	<canvas id="mycanvas" width="500" height="500" style="border:1px solid black;"></canvas>
 	</div>
 		<div>
-			<button id="updateButton" type="button" onclick="app.updateBlueprint();">Save/Update</button>
+			<button id="updateButton" type="button" onclick="app.saveUpdate();">Save/Update</button>
+			<button id="deleteButton" type="button" onclick="app.deleteCanvas();">Delete</button>
+
+		</div>
+		<div>
+			<label for="nombreBlueprint"></label>
+			<input type="text" id = "nombreBlueprint">
+
+			<button id="createBlueprint" type="button" onclick="app.createBlueprint($('#nombreBlueprint').val());">Create BluePrint</button>
 		</div>
 	</form>
 </body>
