@@ -28,6 +28,15 @@ var apiclient = (function () {
             }).fail(function (){
                 alert("error");
             });
+        },
+        updateBlueprintByNameAndAuthor: function (name, author, newPoints) {
+            return $.ajax({
+                url: "/blueprints/" + author + "/" + name,
+                type: 'PUT',
+                data: JSON.stringify({author:author, name:name, points:newPoints}),
+                contentType: "application/json"
+            });
         }
+
     }
 })();

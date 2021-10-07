@@ -11,6 +11,7 @@
 	<script src="js/apimock.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/apiclient.js"></script>
+	<script src="js/appdraw.js"></script>
 
 
 </head>
@@ -19,7 +20,7 @@ table, th, td {
   border:1px solid black;
 }
 </style>
-<body onload="app.init()">
+<body>
 	<h1>BluePrints v2</h1>
 	<form>
 	<div>
@@ -56,6 +57,9 @@ table, th, td {
 	<br>
 	<canvas id="mycanvas" width="500" height="500" style="border:1px solid black;"></canvas>
 	</div>
+		<div>
+			<button id="updateButton" type="button" onclick="app.updateBlueprint();">Save/Update</button>
+		</div>
 	</form>
 </body>
 </html>
